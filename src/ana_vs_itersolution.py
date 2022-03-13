@@ -1,6 +1,6 @@
-import numpy                 #loading our favorite library
+import numpy                 
 import sympy
-from matplotlib import pyplot    #and the useful plotting library
+from matplotlib import pyplot   
 
 from sympy import init_printing
 init_printing(use_latex=False)
@@ -11,12 +11,12 @@ nx = 50
 dx = 2 / (nx - 1)
 nt = 100    #the number of timesteps we want to calculate
 nu = 0.01   #the value of viscosity
-sigma = 0.1 #sigma is a parameter, we'll learn more about it later
-dt = sigma * dx**2 / nu #dt is defined using sigma ... more later!
+sigma = 0.1 
+dt = sigma * dx**2 / nu 
 
 u = numpy.ones(nx)
 u[1:2] = 2
-un = numpy.ones(nx) #our placeholder array, un, to advance the solution in time
+un = numpy.ones(nx)
 
 x,nu,t = sympy.symbols('x nu t')
 phi = (sympy.exp(-(x - 4 * t)**2 / (4 * nu * (t + 1))) + sympy.exp(-(x - 4 * t - 2 * sympy.pi)**2 / (4 * nu * (t + 1))))
